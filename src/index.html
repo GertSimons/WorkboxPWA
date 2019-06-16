@@ -7,6 +7,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(function (registration) {
+        console.log('Service Worker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        console.log('Service Worker registration failed: ', err);
+      });
+
+      navigator.serviceWorker.ready.then(function (registration) {
+        console.log('Service Worker ready');
+      });
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>
